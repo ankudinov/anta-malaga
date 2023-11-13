@@ -8,7 +8,7 @@ servers:
   - name: s1-host1
     rack: pod1
     adapters:
-      - endpoint_ports: [Eth1, Eth2]
+      - endpoint_ports: [Ethernet1, Ethernet2]
         switch_ports: [Ethernet4, Ethernet4]
         switches: [s1-leaf1, s1-leaf2]
         profile: TENANT_A
@@ -19,7 +19,7 @@ servers:
   - name: s1-host2
     rack: pod2
     adapters:
-      - endpoint_ports: [Eth1, Eth2]
+      - endpoint_ports: [Ethernet1, Ethernet2]
         switch_ports: [Ethernet4, Ethernet4]
         switches: [s1-leaf3, s1-leaf4]
         profile: TENANT_A
