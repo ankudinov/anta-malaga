@@ -13,7 +13,7 @@
     "onCreateCommand": "docker import /home/vscode/tmp/ceos-lab-temp ceos-lab:latest; rm -rf /home/vscode/tmp/",
     // set minimum host requirements for cLab
     "hostRequirements": {
-        "cpus": 4,
+        "cpus": 8,
         "memory": "16gb"
     }
 }
