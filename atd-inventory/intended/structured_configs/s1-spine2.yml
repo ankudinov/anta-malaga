@@ -94,6 +94,11 @@ ip_name_servers:
   vrf: default
 spanning_tree:
   mode: none
+local_users:
+- name: arista
+  privilege: 15
+  role: network-admin
+  sha512_password: $6$2nObmlG4of8VoR5p$0LxMFHHrfwm9Er3wt/qN2hEj.12pmdHaZrZ4K8gP4PUgY/Qn2zxSlD8iojqbHdDO7s.QCb3QdztKDhUTtH.pv1
 vrfs:
 - name: default
   ip_routing: false

@@ -131,6 +131,11 @@ spanning_tree:
   - id: '0'
     priority: 16384
   no_spanning_tree_vlan: 4093-4094
+local_users:
+- name: arista
+  privilege: 15
+  role: network-admin
+  sha512_password: $6$BXeVOO8rxIuT3e6i$EwJ8UXNnVKU2kLBAb2vX2meGWAw1Ig6elIC0DXdlvNftEm9UOoTYawxJSW1TcthSWPeAs4tz9sCnlOqRI7Oad1
 vrfs:
 - name: default
   ip_routing: false
@@ -256,10 +261,10 @@ ethernet_interfaces:
   ip_address: 172.30.255.7/31
 - name: Ethernet4
   peer: s1-host1
-  peer_interface: Eth2
+  peer_interface: Ethernet2
   peer_type: server
   port_profile: TENANT_A
-  description: s1-host1_Eth2
+  description: s1-host1_Ethernet2
   shutdown: false
   type: port-channel-member
   channel_group:

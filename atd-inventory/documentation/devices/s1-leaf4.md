@@ -7,6 +7,8 @@
   - [DNS Domain](#dns-domain)
   - [IP Name Servers](#ip-name-servers)
   - [Management API HTTP](#management-api-http)
+- [Authentication](#authentication)
+  - [Local Users](#local-users)
 - [MLAG](#mlag)
   - [MLAG Summary](#mlag-summary)
   - [MLAG Device Configuration](#mlag-device-configuration)
@@ -127,6 +129,23 @@ management api http-commands
       no shutdown
 ```
 
+## Authentication
+
+### Local Users
+
+#### Local Users Summary
+
+| User | Privilege | Role | Disabled | Shell |
+| ---- | --------- | ---- | -------- | ----- |
+| arista | 15 | network-admin | False | - |
+
+#### Local Users Device Configuration
+
+```eos
+!
+username arista privilege 15 role network-admin secret sha512 <removed>
+```
+
 ## MLAG
 
 ### MLAG Summary
@@ -236,7 +255,7 @@ vlan 4094
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
 | Ethernet1 | MLAG_PEER_s1-leaf3_Ethernet1 | *trunk | *- | *- | *['LEAF_PEER_L3', 'MLAG'] | 1 |
-| Ethernet4 | s1-host2_Eth2 | *trunk | *160 | *- | *- | 4 |
+| Ethernet4 | s1-host2_Ethernet2 | *trunk | *160 | *- | *- | 4 |
 | Ethernet6 | MLAG_PEER_s1-leaf3_Ethernet6 | *trunk | *- | *- | *['LEAF_PEER_L3', 'MLAG'] | 1 |
 
 *Inherited from Port-Channel Interface
@@ -272,7 +291,7 @@ interface Ethernet3
    ip address 172.30.255.15/31
 !
 interface Ethernet4
-   description s1-host2_Eth2
+   description s1-host2_Ethernet2
    no shutdown
    channel-group 4 mode on
 !

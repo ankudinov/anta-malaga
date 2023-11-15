@@ -7,6 +7,8 @@
   - [DNS Domain](#dns-domain)
   - [IP Name Servers](#ip-name-servers)
   - [Management API HTTP](#management-api-http)
+- [Authentication](#authentication)
+  - [Local Users](#local-users)
 - [Spanning Tree](#spanning-tree)
   - [Spanning Tree Summary](#spanning-tree-summary)
   - [Spanning Tree Device Configuration](#spanning-tree-device-configuration)
@@ -110,6 +112,23 @@ management api http-commands
    !
    vrf default
       no shutdown
+```
+
+## Authentication
+
+### Local Users
+
+#### Local Users Summary
+
+| User | Privilege | Role | Disabled | Shell |
+| ---- | --------- | ---- | -------- | ----- |
+| arista | 15 | network-admin | False | - |
+
+#### Local Users Device Configuration
+
+```eos
+!
+username arista privilege 15 role network-admin secret sha512 <removed>
 ```
 
 ## Spanning Tree
