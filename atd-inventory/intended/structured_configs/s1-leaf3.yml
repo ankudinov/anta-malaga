@@ -135,7 +135,7 @@ local_users:
 - name: arista
   privilege: 15
   role: network-admin
-  sha512_password: $6$DkLfdy9JmyW2fQNv$cqWL.iUzX094vHTrpLbwv1epeYEqYfbvGsSEjYasUV0byD41Vr9AF9fXobziXPxQPwE2szdfw32VKn3GxVe5a0
+  sha512_password: $6$BI3/n.gx2fW.JX9S$6QKuKhc3hJKEIsIrP3FbLqdlosG2UKZcLEKsYk2qDSgofl1KWps//pMyBvfOWOYZjWY4ZVbvcP9NusbROUKMm1
 vrfs:
 - name: default
   ip_routing: false
@@ -269,7 +269,7 @@ ethernet_interfaces:
   type: port-channel-member
   channel_group:
     id: 4
-    mode: 'on'
+    mode: active
 mlag_configuration:
   domain_id: pod2
   local_interface: Vlan4094
