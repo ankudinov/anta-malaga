@@ -27,6 +27,19 @@ anta.tests.configuration:
       # filters:
       #   tags: [fabric]
 
+anta.tests.connectivity:
+  - VerifyReachability:
+      hosts:
+      - destination: 10.255.1.3
+        repeat: 1
+        source: Loopback1
+        vrf: Tenant_A_OP_Zone
+      result_overwrite:
+        categories:
+        - IP Reachability
+        custom_field: 'Source: s1-leaf1_Ethernet2 - Destination: s1-spine1_Ethernet2'
+        description: ip reachability test p2p links
+
 # # Load anta.tests.system
 # anta.tests.system:
 #   # Verifies the device uptime is higher than a value.
