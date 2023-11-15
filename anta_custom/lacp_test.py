@@ -26,3 +26,29 @@ class VerifyLACP(AntaTest):
         else:
             self.result.is_success()
 
+class VerifyRouteCount(AntaTest):
+    """
+    Verify number of routes in the VRF
+    """
+
+    name = "VerifyRouteCount"
+    description = "Verifies route count in a VRF"
+    categories = ["routing", "generic"]
+    commands = [AntaCommand(command="show ip route vrf all summary", revision=3)]
+
+    class Input(AntaTest.Input):  # pylint: disable=missing-class-docstring
+        vrf: str = "default"
+        minimum: int
+        """Expected minimum routing table (default VRF) size"""
+        maximum: int
+        """Expected maximum routing table (default VRF) size"""
+
+    @AntaTest.anta_test
+    def test(self) -> None:
+        command_output = self.instance_commands[0].json_output
+        total_routes = int(command_output["vrfs"][self.inputs.vrf]["connected"])
+        if self.inputs.minimum <= total_routes <= self.inputs.maximum:
+            self.result.is_success()
+        else:
+            self.result.is_failure(f"routing-table has {total_routes} routes and not between min ({self.inputs.minimum}) and maximum ({self.inputs.maximum})")
+

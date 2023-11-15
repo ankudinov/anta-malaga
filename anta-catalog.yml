@@ -6,6 +6,10 @@ anta_custom.lacp_test:
   - VerifyLACP:
       # filters:
       #   tags: [fabric]
+  - VerifyRouteCount:
+      vrf: Tenant_A_OP_Zone
+      minimum: 3
+      maximum: 999
 
 # # Load anta.tests.software
 # anta.tests.software:
